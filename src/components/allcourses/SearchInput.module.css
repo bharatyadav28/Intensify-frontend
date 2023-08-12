@@ -1,0 +1,24 @@
+.group {
+  border: 2px solid rgb(122, 121, 121);
+
+  padding: 0.5rem;
+  border-radius: 25px;
+  /* width: 50%; */
+  margin-left: 2rem;
+}
+
+.icon,
+.input {
+  border: none;
+  outline: none;
+}
+.input {
+  font-weight: 500;
+  padding: 0;
+}
+
+.icon:focus,
+.input:focus {
+  border-color: none;
+  box-shadow: none;
+}

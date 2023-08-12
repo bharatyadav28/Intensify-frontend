@@ -1,0 +1,55 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.active-class {
+  background-color: rgb(0, 0, 0, 0.05);
+}
+
+.disabled-btn span {
+  background-color: #5072a7 !important;
+  margin-right: 0.5rem;
+}
+
+.grey-background {
+  background-color: #f0f4f8;
+  height: 100vh;
+  width: 100%;
+}
+
+.load-img {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  animation: rotateImg 2s linear infinite;
+}
+
+@keyframes rotateImg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .load-img {
+    width: 7rem;
+    height: 7rem;
+  }
+}

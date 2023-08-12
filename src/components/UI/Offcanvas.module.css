@@ -1,0 +1,7 @@
+.offcanvas {
+  min-height: 6rem;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #b9d9eb;
+  height: max-content;
+}

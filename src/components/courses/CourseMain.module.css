@@ -1,0 +1,10 @@
+.course-navbar a {
+  margin-left: 0.9rem;
+}
+.course-navbar a {
+  color: #77838f;
+  text-decoration: none;
+}
+.course-navbar a:hover {
+  color: #4e4f50;
+}

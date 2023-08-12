@@ -1,0 +1,37 @@
+.related-course {
+  display: flex;
+  margin-bottom: 2.3rem;
+}
+
+/* image */
+.image {
+  max-width: fit-content;
+
+  height: auto;
+  width: 8rem;
+  overflow: hidden;
+}
+.image img {
+  width: 8rem;
+  height: 6rem;
+
+  object-fit: contain;
+  border-radius: 1.5rem;
+}
+
+/*  course data */
+.course-data {
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #2f2d51;
+}
+.course-data .name {
+  margin-bottom: 0.3rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .image {
+    width: 15rem;
+  }
+}

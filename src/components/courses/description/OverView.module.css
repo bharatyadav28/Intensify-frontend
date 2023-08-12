@@ -1,0 +1,71 @@
+/* .overview {
+  display: flex;
+  flex-direction: column;
+} */
+
+/* Course Description */
+.desc {
+  font-size: 1rem;
+  color: #77838f;
+}
+
+/* Highlight */
+.highLights {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.highLights h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  color: #2f2d51;
+  font-weight: 400;
+}
+.highLights ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #77838f;
+  padding-left: 0;
+}
+.highLights ul li {
+  width: 40%;
+  margin: 0.8rem 0.2rem;
+}
+
+/* Requirements and Audience*/
+.requirements,
+.audience {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.requirements h3,
+.audience h3 {
+  font-weight: 400;
+  color: #2f2d51;
+  font-size: 1.3rem;
+}
+
+.requirements ul li::before,
+.audience ul li::before {
+  content: "\2022";
+  color: #4a8f9f;
+  font-weight: bold;
+  display: inline;
+  width: 2em;
+  margin-left: 0;
+  margin-right: 0.4rem;
+}
+
+.requirements li,
+.audience li {
+  margin: 1.3rem 0;
+  color: #77838f;
+}
+
+.requirements,
+.audience {
+  display: flex;
+  flex-direction: column;
+}

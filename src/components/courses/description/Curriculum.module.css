@@ -1,0 +1,15 @@
+.curriculum {
+  margin: 1.5rem 0rem;
+}
+
+@media only screen and (max-width: 560px) {
+  .curriculum {
+    margin: 1.5rem 0.3rem;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .curriculum {
+    margin: 1.5rem 0rem;
+  }
+}

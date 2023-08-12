@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://intensify-backend.vercel.app/api/:path*"
+    }
+  ]
+}

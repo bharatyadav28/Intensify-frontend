@@ -1,0 +1,109 @@
+.purchase-main {
+  width: 100%;
+  margin: 1.2rem 1rem 1.2rem 0;
+  height: max-content;
+  border-radius: 0.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* image */
+.image {
+  max-width: fit-content;
+
+  height: 13rem;
+  width: 18rem;
+  overflow: hidden;
+  text-align: center;
+}
+.image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.price {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.net-price {
+  font-weight: 500;
+  font-size: 1.5rem;
+
+  display: inline-block;
+}
+
+.actual-price {
+  display: inline-block;
+  color: #77838f;
+  text-decoration: line-through;
+}
+
+.discount-per {
+  font-size: 0.7rem;
+  display: inline-block;
+  background-color: #b8b2fb;
+  width: max-content;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.2rem;
+  margin-left: auto;
+  margin-right: 1.2rem;
+}
+
+.enroll-btn {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 1.5rem auto;
+  padding: 1rem;
+}
+
+.enroll-btn button {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  align-self: center;
+  border: none;
+  background-color: rgba(24, 162, 254, 0.7);
+  color: white;
+  cursor: pointer;
+}
+
+.enroll-btn button:hover {
+  background-color: rgba(18, 137, 215, 0.7);
+}
+
+.extra-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+}
+
+.extra-details .value {
+  color: #77838f;
+}
+
+.share {
+  color: #0993ef;
+  align-self: center;
+  border-bottom: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.share:hover {
+  color: #0c78c0;
+}
+
+@media only screen and (max-width: 560px) {
+  .image {
+    height: 10rem;
+  }
+}

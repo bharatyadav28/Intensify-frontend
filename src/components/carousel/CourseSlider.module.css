@@ -1,0 +1,41 @@
+/*  main container consisiting of prev and next buttons too */
+.slider {
+  overflow: hidden;
+  position: relative;
+
+  /* padding: 2rem;
+  margin: 1rem; */
+}
+
+/* Carousel Buttons */
+.prev-arrow,
+.next-arrow {
+  border: none;
+  background: none;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+.next-arrow {
+  right: 0;
+}
+
+/* Inner container containing of carousel items */
+.container {
+  display: flex;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  /* .slider {
+    padding: 0rem;
+
+    margin: 1rem 0 1rem 0;
+  } */
+}

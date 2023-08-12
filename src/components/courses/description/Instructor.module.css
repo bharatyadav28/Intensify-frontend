@@ -1,0 +1,33 @@
+.heading {
+  margin: 1.3rem 0.7rem;
+}
+
+.instructor-details {
+  display: flex;
+  margin: 0.3rem 0.7rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+@media only screen and (max-width: 735px) {
+  .instructor {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+  .heading {
+    margin: 1.5rem 0.7rem;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  .instructor-details {
+    flex-direction: column;
+    padding: 0.8rem 0;
+  }
+  .instructor-details h5 {
+    margin: 1rem 0;
+    color: rgb(94, 90, 90);
+    font-style: oblique;
+    margin-right: 10%;
+  }
+}

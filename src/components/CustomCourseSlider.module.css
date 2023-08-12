@@ -1,0 +1,30 @@
+.custom-slider {
+  border: 1px solid #00000026;
+  box-shadow: 0.1px 0.1px rgb(0, 0, 0, 0.1) 0.1px 0.1px rgb(0, 0, 0, 0.1) inset;
+  border-radius: 0.1rem;
+  padding: 1.5rem 2rem 0.5rem 2rem;
+  margin: 3rem 1rem 1rem 1rem;
+}
+
+.slider-desc {
+  width: 70%;
+}
+
+.view-all {
+  color: rgb(245, 105, 105);
+}
+.view-all:hover {
+  color: rgb(242, 10, 10);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 500px) {
+  .custom-slider {
+    padding: 1rem 0 0 0;
+
+    margin: 3rem 0 1rem 0;
+  }
+  .slider-desc {
+    width: 90%;
+  }
+}

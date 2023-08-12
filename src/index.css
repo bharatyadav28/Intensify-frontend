@@ -1,0 +1,13 @@
+body {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.spinner {
+  margin-left: 350px;
+  margin-right: auto;
+}

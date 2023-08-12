@@ -1,0 +1,54 @@
+.desc {
+  overflow: hidden;
+}
+
+/* Course Description */
+.descp {
+  color: #77838f;
+  /* padding-right: 4rem; */
+}
+
+/* options */
+.options {
+  list-style: none;
+  display: flex;
+  color: #77838f;
+  font-size: 1.3rem;
+  flex-wrap: wrap;
+}
+.options li {
+  display: inline;
+  margin: 2rem 3rem 0 0;
+}
+.desc hr {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  width: 97%;
+}
+
+.options li button {
+  color: inherit;
+  border: none;
+  background: none;
+
+  padding: 1rem;
+  padding-bottom: 0.8rem;
+}
+
+.active {
+  border-bottom: 2px solid black;
+  color: black;
+}
+
+@media only screen and (max-width: 900px) {
+  .options li {
+    margin: 0rem;
+    margin-top: 1rem;
+
+    justify-content: center;
+  }
+  .desc hr {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}
