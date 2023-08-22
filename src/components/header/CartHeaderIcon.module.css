@@ -1,0 +1,16 @@
+.icon {
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  left: 0.9rem;
+  /* top: 0.1rem; */
+  bottom: 0.7rem;
+  background-color: #0a2351;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.7rem;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+}

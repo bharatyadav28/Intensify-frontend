@@ -1,4 +1,10 @@
-import { Triangle, MutatingDots, Bars, Watch } from "react-loader-spinner";
+import {
+  Triangle,
+  MutatingDots,
+  Bars,
+  Watch,
+  Oval,
+} from "react-loader-spinner";
 import React from "react";
 
 const TriangleSpinner = ({ marginClasses }) => {
@@ -73,4 +79,29 @@ const ClockSpinner = ({ marginClasses }) => {
   );
 };
 
-export { TriangleSpinner, MutatingDotsSpinner, BarsSpinner, ClockSpinner };
+const OvalSpinner = ({ width, height }) => {
+  return (
+    <div>
+      <Oval
+        height={height}
+        width={width}
+        color="#282828"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        ariaLabel="oval-loading"
+        secondaryColor="#4fa94d"
+        strokeWidth={2}
+        strokeWidthSecondary={2}
+      />
+    </div>
+  );
+};
+
+export {
+  TriangleSpinner,
+  MutatingDotsSpinner,
+  BarsSpinner,
+  ClockSpinner,
+  OvalSpinner,
+};

@@ -1,11 +1,71 @@
 import { FiShare2 } from "react-icons/fi";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useEffect, useState } from "react";
 
 import classes from "./PurchaseSideBar.module.css";
 import Sidebar from "../UI/SideBar";
+import { useAddCartItemMutation } from "../../store/apis/cart-api";
+import { notifyError } from "../../utlils/index";
+import { LoadingPageOverlay } from "../../pages/LoadingPage";
+import { BarsSpinner } from "../UI/LoadingSpinner";
+import { useGetMylearningQuery } from "../../store/apis/mylearning-api";
 
 const PurchaseSideBar = (props) => {
+  const [alreadyPurchased, setAlreadyPurchased] = useState(false);
+
+  const navigate = useNavigate();
   const actualPrice = props.courseData.actualPrice;
   let netPrice = props.courseData.netPrice;
+
+  const user = useSelector((state) => state.currentUser.user);
+
+  const [addItem, addResults] = useAddCartItemMutation();
+
+  const { data: learningData } = useGetMylearningQuery();
+
+  useEffect(() => {
+    if (addResults.isSuccess) {
+      navigate("/cart");
+    }
+  }, [addResults.isSuccess]);
+
+  useEffect(() => {
+    if (learningData?.course) {
+      for (let lcourse of learningData?.courses) {
+        if (lcourse?._id === props?.courseData?._id) {
+          setAlreadyPurchased(true);
+          break;
+        }
+      }
+    }
+  }, []);
+
+  if (addResults.isLoading) {
+    return (
+      <LoadingPageOverlay>
+        <BarsSpinner />
+      </LoadingPageOverlay>
+    );
+  }
+
+  if (addResults.error) {
+    notifyError(addResults.error.data.msg);
+    addResults.error = null;
+  }
+
+  const handleAddToCart = async () => {
+    if (!user) {
+      notifyError("Please login first");
+      navigate("/login");
+      // return <Navigate to="login" replace={true} />;
+      return;
+    }
+    await addItem({
+      cartItem: { course: props.courseData._id },
+      tax: 5,
+    });
+  };
 
   const discountPercent = (
     ((actualPrice - netPrice) * 100) /
@@ -38,7 +98,9 @@ const PurchaseSideBar = (props) => {
 
       {/* Checkout button */}
       <div className={classes["enroll-btn"]}>
-        <button>ENROLL NOW</button>
+        <button disabled={alreadyPurchased} onClick={handleAddToCart}>
+          {alreadyPurchased ? "Already Purchased" : "ENROLL NOW"}
+        </button>
       </div>
 
       {/* Course realted extra info */}

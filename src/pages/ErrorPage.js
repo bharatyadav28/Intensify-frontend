@@ -8,7 +8,7 @@ const ErrorPage = () => {
   let title = "Error";
   let message = "An error occured";
 
-  console.log("error", error);
+  // console.log("error", error);
 
   if (error && error.status === 404) {
     title = "Not Found!!!";

@@ -49,7 +49,6 @@ const AllCourses = () => {
 
   // Page main content
   let dataDisplayed = "";
-  console.log("fdf", coursesData);
 
   if (coursesData) {
     dataDisplayed = coursesData.courses.map((course) => (
@@ -82,7 +81,6 @@ const AllCourses = () => {
   }
 
   let totalItems = coursesData?.totalItems || 0;
-  console.log("ti", totalItems);
 
   // filter off canvas
   const handleShow = () => setShow((prevState) => !prevState);

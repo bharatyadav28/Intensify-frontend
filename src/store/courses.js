@@ -6,7 +6,7 @@ const coursesSlice = createSlice({
   initialState: initialCourses,
   reducers: {
     replaceCourses: (state, actions) => {
-      console.log("In the redux");
+      // console.log("In the redux");
       state.courses = actions.payload.courses;
 
       state.errors = null;

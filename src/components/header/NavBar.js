@@ -2,23 +2,27 @@ import React from "react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { BsListUl, BsCaretDownFill as ExpandIcon } from "react-icons/bs";
 
 import classes from "./NavBar.module.css";
 import logo from "../../assests/logo.png";
 import useHttp from "../../hooks/use-http";
-import { BsListUl, BsCaretDownFill as ExpandIcon } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { BsSearch as SearchIcon } from "react-icons/bs";
 import { notifySuccess } from "../../utlils";
 import { currentUserActions } from "../../store/current-user";
 import { LoadingPageOverlay } from "../../pages/LoadingPage";
 import { ClockSpinner as LoadingSpinner } from "../UI/LoadingSpinner";
+import CartHeaderIcon from "./CartHeaderIcon";
+import useIsAuthenticated from "../../hooks/isAuthenticated";
 
 const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
   const currentUser = useSelector((state) => state.currentUser.user);
   const dispatch = useDispatch();
   const { isLoading, error, dbConnect, setError } = useHttp();
+
+  const { validUser } = useIsAuthenticated();
 
   if (isLoading) {
     return (
@@ -141,8 +145,27 @@ const NavBar = () => {
       {navLinkVisible && (
         <li className="ms-lg-auto me-lg-2 ">
           <Link to="/courses?page=1">
-            <SearchIcon />
+            <SearchIcon size={20} />
           </Link>
+        </li>
+      )}
+
+      {validUser && navLinkVisible && (
+        <li className=" me-lg-2 ">
+          <Link to="/mylearning">My Learning</Link>
+        </li>
+      )}
+
+      {navLinkVisible && (
+        <li className=" me-lg-2 ">
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            <CartHeaderIcon />
+          </NavLink>
         </li>
       )}
 

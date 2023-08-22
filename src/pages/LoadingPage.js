@@ -24,13 +24,16 @@ const LoadingPageOverlay = ({ children }) => {
 
 // specific part of page
 const LoadingPage = ({ children, className }) => {
-  const classes = className;
   return (
     <div>
-      <SpinnerComp className={classes}>{children}</SpinnerComp>
+      <SpinnerComp className={className}>{children}</SpinnerComp>
     </div>
   );
 };
 
-export { LoadingPageOverlay };
+const LoadingSubPage = ({ children }) => {
+  return <div className={classes.spin}>{children}</div>;
+};
+
+export { LoadingPageOverlay, LoadingSubPage };
 export default LoadingPage;

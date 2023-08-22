@@ -7,11 +7,14 @@ import useInput from "../../hooks/use-input";
 import useHttp from "../../hooks/use-http";
 import { notifySuccess, notifyError, isEmail, isSixChars } from "../../utlils";
 import retreiveCurrentUser from "../../store/current-user-action";
+import { useGetCartItemsQuery } from "../../store/apis/cart-api";
 
 const LoginForm = () => {
   const { isLoading, error, dbConnect: sendData, setError } = useHttp();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { refetch } = useGetCartItemsQuery();
 
   if (error) {
     error && notifyError(error);
@@ -41,11 +44,11 @@ const LoginForm = () => {
     events.preventDefault();
 
     const postRequest = (data) => {
-      console.log("d", data);
       if (data) {
         notifySuccess(data.msg);
         notifySuccess("Hello " + data?.user?.name);
         dispatch(retreiveCurrentUser());
+        refetch();
         navigate("/");
       }
     };

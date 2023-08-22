@@ -1,0 +1,36 @@
+.heading {
+  background-color: #2d2f31;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 5rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.heading h1 {
+  color: white;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.main {
+  display: flex;
+  margin: 2rem 5rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    margin: 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    margin: 2rem 0rem;
+  }
+  .heading {
+    padding-left: 2rem;
+  }
+}
