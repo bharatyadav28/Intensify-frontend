@@ -10,8 +10,9 @@
 
 .spinner {
   position: fixed;
-  top: 40%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 60;
 }
 
@@ -23,10 +24,4 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-}
-
-@media only screen and (max-width: 500px) {
-  .spinner {
-    left: 38%;
-  }
 }

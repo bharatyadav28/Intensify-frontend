@@ -28,7 +28,9 @@ const retreiveCourses = (search) => {
       const courseData = await dbConnect(search);
       dispatch(coursesActions.replaceCourses(courseData));
     } catch (error) {
-      dispatch(coursesActions.fetchErrors(error.message));
+      dispatch(
+        coursesActions.fetchErrors("Something went wrong. Please try again.")
+      );
     }
   };
 };

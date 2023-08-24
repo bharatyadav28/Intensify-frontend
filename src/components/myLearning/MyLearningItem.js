@@ -1,4 +1,8 @@
-import { BsFillStarFill as Star, BsStarHalf as HalfStar } from "react-icons/bs";
+import {
+  BsFillStarFill as Star,
+  BsStarHalf as HalfStar,
+  BsFillPlayCircleFill as PlayIcon,
+} from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
@@ -9,8 +13,14 @@ const MyLearningItem = ({ item }) => {
   const cardContent = (
     <Link to="" className={classes["card-link"]}>
       <div className={classes["course-card"]}>
-        <div>
-          <img className={`img-fluid ${classes.image}`} src={item.image} />
+        <div className={classes["image-div"]}>
+          <div className={classes.div1}>
+            <div className={classes["img-backdrop"]}></div>
+            <span className={classes.playicon}>
+              <PlayIcon size={50} color="white" />
+            </span>
+            <img className={`img-fluid ${classes.image}`} src={item.image} />
+          </div>
         </div>
 
         <div className={classes.data}>

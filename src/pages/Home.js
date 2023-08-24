@@ -1,33 +1,27 @@
 import { useSelector } from "react-redux";
 import { useLoaderData, json } from "react-router-dom";
-import { useNavigation } from "react-router-dom";
 
 import MyCarousel from "../components/carousel/carousel";
 import CustomCourseSlider from "../components/CustomCourseSlider";
-import { LoadingPageOverlay } from "./LoadingPage";
-import favicon from "../assests/IntensifyPic.png";
+import ErrorPage from "./ErrorPage";
 
 const Home = () => {
   const coursesData = useSelector((state) => state.courses.courses);
   const coursesLoading = useSelector((state) => state.courses.isLoading);
   const errors = useSelector((state) => state.courses.errors);
+  console.log("errors", errors);
 
   const { carouselItems } = useLoaderData();
-
-  // const navigation = useNavigation();
-
-  // if (coursesLoading || navigation.state === "loading") {
-  //   return (
-  //     <LoadingPageOverlay>
-  //       <img className="load-img" src={favicon} />
-  //     </LoadingPageOverlay>
-  //   );
-  // }
 
   return (
     <>
       <MyCarousel items={carouselItems} />
-      {errors && <p>{errors}</p>}
+      {errors && (
+        <div className="d-flex flex-column align-items-center my-5">
+          <h4 className="mt-5">Something went wrong </h4>
+          <p className="fw-semibold">Please try again later</p>
+        </div>
+      )}
 
       {!errors && <CustomCourseSlider items={coursesData} />}
     </>

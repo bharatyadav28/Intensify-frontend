@@ -19,9 +19,9 @@ const Cart = () => {
     );
   }
 
-  if (error) {
-    return <ErrorPage msg="Something went wrong. Please try again." />;
-  }
+  // if (error) {
+  //   return <ErrorPage msg="Something went wrong. Please try again." />;
+  // }
 
   const isCartEmpty = cartItems?.length === 0 || !cartItems;
 
