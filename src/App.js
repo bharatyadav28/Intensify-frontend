@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,24 +19,59 @@ import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./components/stripe/PaymentSuccess";
 import MyLearning from "./components/myLearning/MyLearning";
 import useIsAuthenticated from "./hooks/isAuthenticated";
+import { ClockSpinner } from "./components/UI/LoadingSpinner";
+import { LoadingPageOverlay } from "./pages/LoadingPage";
 
 import { loader as CourseLoader } from "./pages/Courses";
 import { loader as HomePageLoader } from "./pages/Home";
 import { notifySuccess } from "./utlils";
+import favicon from "./assests/IntensifyPic.png";
 
 function App() {
   const dispatch = useDispatch();
-  const { validUser } = useIsAuthenticated();
+  const { user: currentUser, isLoading: currentUserLoading } = useSelector(
+    (state) => state.currentUser
+  );
+
+  const [newLogin, setNewLogin] = useState(false);
+  const [initalLoading, setInitialLoading] = useState(true);
 
   useEffect(() => {
     dispatch(retreiveCourses());
+  }, []);
+
+  useEffect(() => {
     dispatch(retreiveCurrentUser());
+  }, [newLogin]);
+
+  const handleLoginStorage = () => {
+    let isLoggedIn = localStorage.getItem("login");
+
+    if (isLoggedIn) {
+      setNewLogin(true);
+    } else {
+      setNewLogin(false);
+    }
+  };
+
+  const loadSite = initalLoading && (
+    <LoadingPageOverlay>
+      <img className="load-img" src={favicon} />
+    </LoadingPageOverlay>
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setInitialLoading(false);
+    }, 1000 * 2);
+
+    return () => clearInterval(interval);
   }, []);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root />,
+      element: <Root clearLoginStorage={handleLoginStorage} />,
       errorElement: <ErrorPage />,
       children: [
         {
@@ -88,7 +123,7 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login createLoginStorage={handleLoginStorage} />,
     },
     {
       path: "/user/verify-email",
@@ -98,6 +133,8 @@ function App() {
 
   return (
     <div className="App">
+      {loadSite}
+
       <ToastContainer />
       <RouterProvider router={router} />
     </div>

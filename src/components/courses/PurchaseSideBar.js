@@ -31,7 +31,7 @@ const PurchaseSideBar = (props) => {
   }, [addResults.isSuccess]);
 
   useEffect(() => {
-    if (learningData?.course) {
+    if (learningData) {
       for (let lcourse of learningData?.courses) {
         if (lcourse?._id === props?.courseData?._id) {
           setAlreadyPurchased(true);
@@ -39,7 +39,7 @@ const PurchaseSideBar = (props) => {
         }
       }
     }
-  }, []);
+  });
 
   if (addResults.isLoading) {
     return (

@@ -15,11 +15,13 @@ const retreiveCurrentUser = () => {
     };
 
     try {
+      dispatch(currentUserActions.loading(true));
       const data = await dbConnect();
       dispatch(currentUserActions.replaceUser(data));
     } catch (error) {
-      console.log(error);
+      dispatch(currentUserActions.fetchErrors(error.message));
     }
+    dispatch(currentUserActions.loading(false));
   };
 };
 

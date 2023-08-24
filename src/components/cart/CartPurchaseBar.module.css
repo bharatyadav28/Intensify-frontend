@@ -93,6 +93,8 @@
   .purchase {
     margin-left: auto;
     margin-right: auto;
+    /* margin-left: 0.5rem;
+    margin-right: 0.2rem; */
   }
 }
 

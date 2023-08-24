@@ -6,7 +6,7 @@ import NavBar from "../components/header/NavBar";
 import MyOffcanvas from "../components/UI/Offcanvas";
 import Footer from "../components/header/Footer";
 
-const Root = () => {
+const Root = ({ clearLoginStorage }) => {
   const [showOffcanvas, setShowOffCanvas] = useState(true);
 
   const handleOffCampus = () => {
@@ -21,7 +21,7 @@ const Root = () => {
         </Row>
       )}
       <Row>
-        <NavBar />
+        <NavBar clearLoginStorage={clearLoginStorage} />
       </Row>
       <Row>
         <Outlet />

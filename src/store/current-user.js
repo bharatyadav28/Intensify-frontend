@@ -2,6 +2,8 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
+  isLoading: false,
+  errors: null,
 };
 const currentUserSlice = createSlice({
   name: "currentUser",
@@ -12,6 +14,12 @@ const currentUserSlice = createSlice({
     },
     removeUser: (state) => {
       state.user = null;
+    },
+    fetchErrors: (state, actions) => {
+      state.errors = actions.payload;
+    },
+    loading: (state, action) => {
+      state.isLoading = action.payload;
     },
   },
 });

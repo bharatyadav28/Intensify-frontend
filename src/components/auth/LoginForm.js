@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import classes from "./SignupForm.module.css";
@@ -9,7 +9,7 @@ import { notifySuccess, notifyError, isEmail, isSixChars } from "../../utlils";
 import retreiveCurrentUser from "../../store/current-user-action";
 import { useGetCartItemsQuery } from "../../store/apis/cart-api";
 
-const LoginForm = () => {
+const LoginForm = ({ createLoginStorage }) => {
   const { isLoading, error, dbConnect: sendData, setError } = useHttp();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,13 +44,11 @@ const LoginForm = () => {
     events.preventDefault();
 
     const postRequest = (data) => {
-      if (data) {
-        notifySuccess(data.msg);
-        notifySuccess("Hello " + data?.user?.name);
-        dispatch(retreiveCurrentUser());
-        refetch();
-        navigate("/");
-      }
+      notifySuccess(data.msg);
+      notifySuccess("Hello " + data?.user?.name);
+      localStorage.setItem("login", true);
+      createLoginStorage();
+      navigate("/");
     };
 
     const requiredConfig = {

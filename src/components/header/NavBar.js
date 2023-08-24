@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { BsListUl, BsCaretDownFill as ExpandIcon } from "react-icons/bs";
@@ -15,14 +15,16 @@ import { LoadingPageOverlay } from "../../pages/LoadingPage";
 import { ClockSpinner as LoadingSpinner } from "../UI/LoadingSpinner";
 import CartHeaderIcon from "./CartHeaderIcon";
 import useIsAuthenticated from "../../hooks/isAuthenticated";
+import mylearningApi from "../../store/apis/mylearning-api";
+import cartApi from "../../store/apis/cart-api";
 
-const NavBar = () => {
+const NavBar = ({ clearLoginStorage }) => {
   const [showNav, setShowNav] = useState(false);
   const currentUser = useSelector((state) => state.currentUser.user);
   const dispatch = useDispatch();
   const { isLoading, error, dbConnect, setError } = useHttp();
 
-  const { validUser } = useIsAuthenticated();
+  const { validUser, setValidUser } = useIsAuthenticated();
 
   if (isLoading) {
     return (
@@ -43,7 +45,12 @@ const NavBar = () => {
   const handleLogout = () => {
     const postRequest = (data) => {
       notifySuccess("Logout Successfull");
+      localStorage.removeItem("login");
+      clearLoginStorage();
       dispatch(currentUserActions.removeUser());
+      dispatch(mylearningApi.util.resetApiState());
+      dispatch(cartApi.util.resetApiState());
+      setValidUser(false);
     };
     dbConnect({ url: "/api/v1/auth/logout", method: "delete" }, postRequest);
   };

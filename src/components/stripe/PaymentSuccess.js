@@ -5,6 +5,7 @@ import axios from "axios";
 import classes from "./stripe.module.css";
 import getSearchParams from "../../utlils/getSearchParams";
 import { useClearCartMutation } from "../../store/apis/cart-api";
+import { notifyError } from "../../utlils";
 
 const PaymentSuccess = () => {
   const navigate = useNavigate();
@@ -29,19 +30,12 @@ const PaymentSuccess = () => {
         },
       });
 
-      // await axios({
-      //   url: "/api/v1/carts/clearCart",
-      //   method: "PATCH",
-      // });
-
       clearCart();
-
-      console.log(response);
     };
     try {
       orderSuccess();
     } catch (error) {
-      console.log("er", error);
+      notifyError(error);
     }
   }, []);
 

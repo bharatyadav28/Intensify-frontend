@@ -9,10 +9,10 @@ const Signup = () => {
   );
 };
 
-const Login = () => {
+const Login = ({ createLoginStorage }) => {
   return (
     <div className="grey-background" style={{ position: "absolute", top: 0 }}>
-      <LoginForm />
+      <LoginForm createLoginStorage={createLoginStorage} />
     </div>
   );
 };

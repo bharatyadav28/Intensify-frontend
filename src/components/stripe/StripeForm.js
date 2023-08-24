@@ -63,8 +63,8 @@ export default function StripeForm({ orderId }) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        // return_url: `http://localhost:3000/payment/success?orderId=${orderId}`,
-        return_url: `https://intensify-jet.vercel.app/payment/success?orderId=${orderId}`,
+        return_url: `http://localhost:3000/payment/success?orderId=${orderId}`,
+        // return_url: `https://intensify-jet.vercel.app/payment/success?orderId=${orderId}`,
       },
     });
 

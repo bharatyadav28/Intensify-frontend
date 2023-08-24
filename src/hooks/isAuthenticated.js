@@ -10,10 +10,11 @@ const useIsAuthenticated = () => {
     if (user) {
       setValidUser(true);
     }
-  }, []);
+  }, [user]);
 
   return {
     validUser,
+    setValidUser,
   };
 };
 

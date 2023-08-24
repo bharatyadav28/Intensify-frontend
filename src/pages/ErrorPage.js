@@ -2,11 +2,11 @@ import { useRouteError } from "react-router-dom";
 
 import ErrorPageContent from "../components/ErrorPageContent";
 
-const ErrorPage = () => {
+const ErrorPage = ({ msg }) => {
   let error = useRouteError();
 
   let title = "Error";
-  let message = "An error occured";
+  let message = msg ? msg : "An error occured";
 
   // console.log("error", error);
 
