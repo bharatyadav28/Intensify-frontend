@@ -7,6 +7,7 @@ import orderSlice from "./order";
 
 import cartApi from "./apis/cart-api";
 import mylearningApi from "./apis/mylearning-api";
+import courseVideosApi from "./apis/course-videos";
 
 // One and only store for the application
 const store = configureStore({
@@ -18,6 +19,7 @@ const store = configureStore({
     // api reducers
     [cartApi.reducerPath]: cartApi.reducer,
     [mylearningApi.reducerPath]: mylearningApi.reducer,
+    [courseVideosApi.reducerPath]: courseVideosApi.reducer,
   },
 
   // Adding the api middleware enables caching, invalidation, polling,
@@ -25,7 +27,8 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       .concat(cartApi.middleware)
-      .concat(mylearningApi.middleware),
+      .concat(mylearningApi.middleware)
+      .concat(courseVideosApi.middleware),
 });
 
 //  required for refetchOnFocus/refetchOnReconnect behaviors

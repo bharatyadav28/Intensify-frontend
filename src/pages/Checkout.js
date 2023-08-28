@@ -7,9 +7,7 @@ import StripeForm from "../components/stripe/StripeForm";
 import { useGetCartItemsQuery } from "../store/apis/cart-api";
 import classes from "../components/stripe/stripe.module.css";
 
-const stripePromise = loadStripe(
-  "pk_test_51NhOsHSINb5GQ4NYB02Xp7VI9JReCB6DZVKmIwa310oiOT5AdjtY28yungWAfrX0QILmpDDQYGH3IhZxJMVKsr8k00hgJKJtJa"
-);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 export default function Checkout() {
   const [clientSecret, setClientSecret] = useState("");

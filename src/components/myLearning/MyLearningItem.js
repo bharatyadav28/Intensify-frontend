@@ -11,7 +11,7 @@ import classes from "./MyLearningItem.module.css";
 
 const MyLearningItem = ({ item }) => {
   const cardContent = (
-    <Link to="" className={classes["card-link"]}>
+    <Link to={item._id} className={classes["card-link"]}>
       <div className={classes["course-card"]}>
         <div className={classes["image-div"]}>
           <div className={classes.div1}>
@@ -29,7 +29,7 @@ const MyLearningItem = ({ item }) => {
           </div>
 
           <div className={classes["instructor"]}>
-            <p>Puneet Superstar</p>
+            <p>{item.tutor}</p>
           </div>
 
           <div className={classes["ratings"]}>

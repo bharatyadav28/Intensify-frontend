@@ -49,7 +49,7 @@ const CourseSliderItem = ({ item }) => {
         </div>
 
         <div className={classes["instructor"]}>
-          <p>Puneet Superstar</p>
+          <p>{item.tutor}</p>
         </div>
 
         <div className={classes["ratings"]}>

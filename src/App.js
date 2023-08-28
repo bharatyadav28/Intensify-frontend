@@ -18,14 +18,14 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./components/stripe/PaymentSuccess";
 import MyLearning from "./components/myLearning/MyLearning";
-import useIsAuthenticated from "./hooks/isAuthenticated";
-import { ClockSpinner } from "./components/UI/LoadingSpinner";
+import Authenticated from "./components/auth/Authenticated";
 import { LoadingPageOverlay } from "./pages/LoadingPage";
+import CourseVideos from "./components/myLearning/CourseVideos";
 
 import { loader as CourseLoader } from "./pages/Courses";
 import { loader as HomePageLoader } from "./pages/Home";
-import { notifySuccess } from "./utlils";
 import favicon from "./assests/IntensifyPic.png";
+import VideoPlayer from "./components/myLearning/VideoPlayer";
 
 function App() {
   const dispatch = useDispatch();
@@ -113,7 +113,22 @@ function App() {
         },
         {
           path: "mylearning",
-          element: <MyLearning />,
+
+          children: [
+            {
+              index: true,
+              element: (
+                <Authenticated>
+                  <MyLearning />
+                </Authenticated>
+              ),
+            },
+
+            {
+              path: ":id",
+              element: <CourseVideos />,
+            },
+          ],
         },
       ],
     },

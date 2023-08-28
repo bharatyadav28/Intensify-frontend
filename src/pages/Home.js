@@ -9,7 +9,6 @@ const Home = () => {
   const coursesData = useSelector((state) => state.courses.courses);
   const coursesLoading = useSelector((state) => state.courses.isLoading);
   const errors = useSelector((state) => state.courses.errors);
-  console.log("errors", errors);
 
   const { carouselItems } = useLoaderData();
 

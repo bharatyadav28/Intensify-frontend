@@ -1,0 +1,24 @@
+.main {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.heading {
+  font-weight: 700;
+}
+
+.videos-link {
+  margin: 0;
+  padding: 0.3rem 0.1rem;
+  text-align: center;
+  font-weight: 540;
+}
+
+.videos-link:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+  margin: 0;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(0, 0, 0, 0.2);
+}
