@@ -17,6 +17,7 @@ import CartHeaderIcon from "./CartHeaderIcon";
 import useIsAuthenticated from "../../hooks/isAuthenticated";
 import mylearningApi from "../../store/apis/mylearning-api";
 import cartApi from "../../store/apis/cart-api";
+import courseVideosApi from "../../store/apis/course-videos";
 
 const NavBar = ({ clearLoginStorage }) => {
   const [showNav, setShowNav] = useState(false);
@@ -50,6 +51,7 @@ const NavBar = ({ clearLoginStorage }) => {
       dispatch(currentUserActions.removeUser());
       dispatch(mylearningApi.util.resetApiState());
       dispatch(cartApi.util.resetApiState());
+      dispatch(courseVideosApi.util.resetApiState());
       setValidUser(false);
     };
     dbConnect({ url: "/api/v1/auth/logout", method: "delete" }, postRequest);

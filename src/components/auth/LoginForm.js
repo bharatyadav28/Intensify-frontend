@@ -1,20 +1,15 @@
-import { Link, useNavigate, redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useNavigate, redirect, Navigate } from "react-router-dom";
+import { useState } from "react";
 
 import classes from "./SignupForm.module.css";
 import favicon from "../../assests/favicon.png";
 import useInput from "../../hooks/use-input";
 import useHttp from "../../hooks/use-http";
 import { notifySuccess, notifyError, isEmail, isSixChars } from "../../utlils";
-import retreiveCurrentUser from "../../store/current-user-action";
-import { useGetCartItemsQuery } from "../../store/apis/cart-api";
 
 const LoginForm = ({ createLoginStorage }) => {
   const { isLoading, error, dbConnect: sendData, setError } = useHttp();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { refetch } = useGetCartItemsQuery();
 
   if (error) {
     error && notifyError(error);
@@ -39,6 +34,12 @@ const LoginForm = ({ createLoginStorage }) => {
     inputBlurHandler: passwordBlurHandler,
   } = useInput(isSixChars);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
+
   // on form submit
   const handleFormSubmit = async (events) => {
     events.preventDefault();
@@ -48,7 +49,7 @@ const LoginForm = ({ createLoginStorage }) => {
       notifySuccess("Hello " + data?.user?.name);
       localStorage.setItem("login", true);
       createLoginStorage();
-      navigate("/");
+      setIsLoggedIn(true);
     };
 
     const requiredConfig = {

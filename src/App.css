@@ -49,7 +49,7 @@ body {
 
 @media screen and (max-width: 500px) {
   .load-img {
-    width: 7rem;
-    height: 7rem;
+    width: 4rem;
+    height: 4rem;
   }
 }
