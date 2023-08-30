@@ -2,14 +2,23 @@ import {
   BsFillStarFill as Star,
   BsStarHalf as HalfStar,
   BsFillPlayCircleFill as PlayIcon,
+  BsStar as WhiteStar,
 } from "react-icons/bs";
-
 import { Link } from "react-router-dom";
 
-import Card from "../UI/Card";
 import classes from "./MyLearningItem.module.css";
 
 const MyLearningItem = ({ item }) => {
+  let orangeStars = item?.averageRatings;
+  let whiteStars = 5 - orangeStars;
+
+  let orangeStarsArray = Array(orangeStars).fill(1);
+  let whiteStarsArray = Array(whiteStars).fill(0);
+
+  const totalRatings = (
+    Math.floor(Math.random() * 1000) + 1000
+  ).toLocaleString();
+
   const cardContent = (
     <Link to={item._id} className={classes["card-link"]}>
       <div className={classes["course-card"]}>
@@ -33,15 +42,16 @@ const MyLearningItem = ({ item }) => {
           </div>
 
           <div className={classes["ratings"]}>
-            <span className={classes["avg-ratings"]}>4.5</span>
+            <span className={classes["avg-ratings"]}>{orangeStars}.0</span>
             <span className={classes["avg-ratings-stars"]}>
-              <Star size={13} color="orange" />
-              <Star size={13} color="orange" />
-              <Star size={13} color="orange" />
-              <Star size={13} color="orange" />
-              <HalfStar size={13} color="Orange" />
+              {orangeStarsArray.map((item, index) => (
+                <Star size={13} color="orange" key={index} />
+              ))}
+              {whiteStarsArray.map((item, index) => (
+                <WhiteStar size={13} key={index} />
+              ))}
             </span>
-            <span className={classes["total-ratings"]}>(1,234)</span>
+            <span className={classes["total-ratings"]}>({totalRatings})</span>
           </div>
 
           <div>

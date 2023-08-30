@@ -22,3 +22,17 @@
 .active {
   background-color: rgb(0, 0, 0, 0.2);
 }
+
+.video-name {
+  display: flex;
+  color: #2d2f31;
+  font-weight: 500;
+  margin-top: 1rem;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+.video-name p {
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  padding-bottom: 0.5rem;
+}

@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: column;
+
+  margin: 2rem 1rem;
+  /* display: inline-block; */
+  width: calc(100% - 2rem);
+  border: 1px solid rgb(0, 0, 0, 0.12);
+}
+
+.top-heading {
+  margin: 3rem 1rem 1rem 1.5rem;
+}
+
+.top-heading h5 {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 500px) {
+  .top-heading {
+    margin: 3rem 0.2rem 1rem 0.5rem;
+  }
+  .top-heading h5 {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+}

@@ -1,4 +1,8 @@
-import { BsFillStarFill as Star, BsStarHalf as HalfStar } from "react-icons/bs";
+import {
+  BsFillStarFill as Star,
+  BsStarHalf as HalfStar,
+  BsStar as WhiteStar,
+} from "react-icons/bs";
 import { AiOutlineCheck as CheckIcon } from "react-icons/ai";
 import OverLay from "../UI/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
@@ -37,6 +41,16 @@ const CourseSliderItem = ({ item }) => {
     </Tooltip>
   );
 
+  let orangeStars = item?.averageRatings;
+  let whiteStars = 5 - orangeStars;
+
+  let orangeStarsArray = Array(orangeStars).fill(1);
+  let whiteStarsArray = Array(whiteStars).fill(0);
+
+  const totalRatings = (
+    Math.floor(Math.random() * 1000) + 1000
+  ).toLocaleString();
+
   const cardContent = (
     <Link to={`courses/${item._id}`} className={classes["card-link"]}>
       <Card className={classes["course-card"]}>
@@ -53,15 +67,16 @@ const CourseSliderItem = ({ item }) => {
         </div>
 
         <div className={classes["ratings"]}>
-          <span className={classes["avg-ratings"]}>4.5</span>
+          <span className={classes["avg-ratings"]}>{orangeStars}.0</span>
           <span className={classes["avg-ratings-stars"]}>
-            <Star size={13} color="orange" />
-            <Star size={13} color="orange" />
-            <Star size={13} color="orange" />
-            <Star size={13} color="orange" />
-            <HalfStar size={13} color="Orange" />
+            {orangeStarsArray.map((item, index) => (
+              <Star size={13} color="orange" key={index} />
+            ))}
+            {whiteStarsArray.map((item, index) => (
+              <WhiteStar size={13} key={index} />
+            ))}
           </span>
-          <span className={classes["total-ratings"]}>(1,234)</span>
+          <span className={classes["total-ratings"]}>({totalRatings})</span>
         </div>
 
         <div>

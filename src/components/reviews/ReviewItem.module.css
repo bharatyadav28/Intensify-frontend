@@ -1,0 +1,64 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.12);
+  border-top: 1px solid rgb(0, 0, 0, 0.12);
+  width: 18rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #2d2f31;
+  margin: 1rem;
+  padding: 0 0.3rem;
+}
+
+.heading {
+  display: flex;
+  margin-top: 0.8rem;
+}
+
+.pic {
+  background-color: #2d2f31;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50%;
+  height: fit-content;
+  font-weight: 900;
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.add {
+  color: #2d2f31;
+  display: flex;
+  flex-direction: column;
+  margin: 0.85rem 1rem 1rem 0;
+  font-weight: 700;
+  position: relative;
+  flex-grow: 1;
+}
+
+.ratings {
+  position: absolute;
+  top: 1rem;
+}
+
+.comments {
+  margin: 0rem 1rem 1rem 0rem;
+}
+
+.helpful {
+  color: #6a6f73;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+}
+
+.thumb-btns {
+  position: absolute;
+  left: 4rem;
+  bottom: 0.1rem;
+}
+.thumb-btns button {
+  margin: 0 0.8rem 0 0;
+  border: none;
+  padding: 0;
+  background-color: white;
+}

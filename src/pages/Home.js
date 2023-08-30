@@ -3,7 +3,7 @@ import { useLoaderData, json } from "react-router-dom";
 
 import MyCarousel from "../components/carousel/carousel";
 import CustomCourseSlider from "../components/CustomCourseSlider";
-import ErrorPage from "./ErrorPage";
+import Reviews from "../components/reviews/Reviews";
 
 const Home = () => {
   const coursesData = useSelector((state) => state.courses.courses);
@@ -23,6 +23,8 @@ const Home = () => {
       )}
 
       {!errors && <CustomCourseSlider items={coursesData} />}
+
+      <Reviews />
     </>
   );
 };

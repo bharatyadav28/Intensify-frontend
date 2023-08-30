@@ -9,6 +9,7 @@ import { LoadingSubPage } from "../../pages/LoadingPage";
 import { MutatingDotsSpinner } from "../UI/LoadingSpinner";
 import ErrorPage from "../../pages/ErrorPage";
 import { notifyError } from "../../utlils";
+import classes from "./CourseAccordian.module.css";
 
 const CourseVideos = () => {
   const params = useParams();
@@ -46,8 +47,11 @@ const CourseVideos = () => {
     <Container className=" overflow-hidden mt-sm-1 mb-sm-5 mb-3 px-sm-5">
       {activeVideo && (
         <Row>
-          <Col className="  overflow-hidden " sm={8}>
+          <Col className=" overflow-hidden " sm={8}>
             <VideoPlayer url={activeVideo.url} />
+            <div className={classes["video-name"]}>
+              <p>{activeVideo.name}</p>
+            </div>
           </Col>
 
           <Col className="  mt-sm-0 mt-5" sm={4}>
