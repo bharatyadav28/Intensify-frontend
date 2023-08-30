@@ -10,7 +10,7 @@ const Reviews = () => {
   let reviews = data?.reviews;
 
   if (window.screen.width <= 500) {
-    reviews = reviews.slice(0, 2);
+    reviews = reviews?.slice(0, 2);
   }
 
   if (isLoading) {
