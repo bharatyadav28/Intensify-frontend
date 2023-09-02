@@ -10,20 +10,51 @@ import { MutatingDotsSpinner } from "../UI/LoadingSpinner";
 import ErrorPage from "../../pages/ErrorPage";
 import { notifyError } from "../../utlils";
 import classes from "./CourseAccordian.module.css";
+import Modal from "../UI/Modal";
+import AddReview from "../reviews/AddReview";
+import useHttp from "../../hooks/use-http";
 
 const CourseVideos = () => {
   const params = useParams();
   const courseId = params.id;
 
+  const [showModal, setShowModal] = useState(false);
+  const { dbConnect, setError } = useHttp();
+
   const { data, isLoading, error } = useGetCourseVideosQuery(courseId);
 
+  const handleModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   const [activeVideo, setActiveVideo] = useState(null);
+
   useEffect(() => {
     setActiveVideo({
       url: data?.courseVideos[0]?.videos[0]?.url,
       name: data?.courseVideos[0]?.videos[0]?.name,
     });
   }, [data]);
+
+  useEffect(() => {
+    let id = null;
+    const postRequest = (data) => {
+      id = setTimeout(() => {
+        if (!data.submitFlag) {
+          handleModal();
+        }
+      }, 5000);
+      return () => clearTimeout(id);
+    };
+
+    const requiredConfig = {
+      url: `/api/v1/reviews/hasSubmitted`,
+    };
+
+    dbConnect(requiredConfig, postRequest);
+
+    return () => clearTimeout(id);
+  }, []);
 
   const handleActiveVideo = (videoData) => {
     setActiveVideo(videoData);
@@ -59,10 +90,19 @@ const CourseVideos = () => {
               newActiveVideo={handleActiveVideo}
               courseData={data?.courseVideos}
               currentlyActive={activeVideo}
+              handleModal={handleModal}
             />
           </Col>
         </Row>
       )}
+      <Row>
+        {/* <button className="w-25" onClick={handleModal}>
+          modal
+        </button> */}
+        <Modal onClose={handleModal} showModal={showModal}>
+          <AddReview course={courseId} onClose={handleModal} />
+        </Modal>
+      </Row>
     </Container>
   );
 };

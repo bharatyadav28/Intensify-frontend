@@ -41,7 +41,9 @@ const SearchInput = () => {
         searchParams.delete("page");
       }
 
-      searchParams.append("search", inputRef.current);
+      if (inputRef.current) {
+        searchParams.append("search", inputRef.current);
+      }
       searchParams.append("page", "1");
 
       const interval = setTimeout(() => submit(searchParams), 500);

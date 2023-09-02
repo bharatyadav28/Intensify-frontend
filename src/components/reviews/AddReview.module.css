@@ -1,0 +1,44 @@
+.main {
+  max-width: 30rem;
+  width: 80vw;
+  height: fit-content;
+  padding: 2rem;
+}
+
+.share {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #2d2f31;
+  font-size: 0.9rem;
+  word-spacing: 0.3rem;
+  font-weight: 400;
+}
+
+.share p {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.star {
+  font-size: 3rem;
+}
+
+.on {
+  color: orange;
+}
+.off {
+  color: #ccc;
+}
+
+@media screen and (max-width: 500px) {
+  .star {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+}

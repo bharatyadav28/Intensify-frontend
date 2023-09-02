@@ -1,52 +1,44 @@
-import ReactDom from "react-dom";
-import { Transition } from "react-transition-group";
+import { createPortal } from "react-dom";
+import Transition from "react-transition-group/Transition";
 
 import classes from "./Modal.module.css";
 
-const BackDrop = (props) => {
-  return <div className={classes["back-drop"]} onClick={props.onClose}></div>;
-};
-
-// Main modal content
-const ModalOverLay = (props) => {
+const ModalContainer = ({ onClose, transitionState, className, children }) => {
   const modalClasses = [
-    classes["modal-overlay"],
-    props.className,
-    props.state === "entering"
-      ? classes["modal-open"]
-      : props.state === "exiting"
-      ? classes["modal-close"]
+    classes.container,
+    className,
+    transitionState === "entering"
+      ? classes["show-modal"]
+      : transitionState === "exiting"
+      ? classes["hide-modal"]
       : null,
   ];
-  return <div className={modalClasses.join(" ")}>{props.children}</div>;
+
+  return <div className={modalClasses.join(" ")}>{children}</div>;
 };
 
-const portalElement = document.getElementById("modal");
+const BackDrop = ({ onClose }) => {
+  return <div className={classes.backdrop} onClick={onClose}></div>;
+};
 
-// Main modal content and Backdrop
-const Modal = (props) => {
+const Modal = ({ onClose, showModal, className, children }) => {
+  const domNode = document.getElementById("modal");
   return (
-    <Transition in={props.showModal} timeout={500} mountOnEnter unmountOnExit>
-      {(state) => {
-        return (
-          <>
-            {ReactDom.createPortal(
-              <BackDrop onClose={props.onClose} />,
-              portalElement
-            )}
-            {ReactDom.createPortal(
-              <ModalOverLay
-                onClose={props.onClose}
-                className={props.className}
-                state={state}
-              >
-                {props.children}
-              </ModalOverLay>,
-              portalElement
-            )}
-          </>
-        );
-      }}
+    <Transition in={showModal} timeout={500} mountOnEnter unmountOnExit>
+      {(state) => (
+        <>
+          {createPortal(<BackDrop onClose={onClose} />, domNode)}
+          {createPortal(
+            <ModalContainer
+              onClose={onClose}
+              transitionState={state}
+              className={className}
+              children={children}
+            />,
+            domNode
+          )}
+        </>
+      )}
     </Transition>
   );
 };

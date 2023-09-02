@@ -85,7 +85,8 @@
 
 .avg-ratings-stars {
   position: absolute;
-  bottom: 0.1rem;
+  /* bottom: 0.4rem; */
+  top: 0.35rem;
   margin: 0 0.3rem 0 0.3rem;
 }
 

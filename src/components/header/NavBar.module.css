@@ -70,7 +70,7 @@
   color: #6cb4ee;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 992px) {
   .navbar {
     overflow: hidden;
     display: flex;

@@ -116,9 +116,13 @@ const LoginForm = ({ createLoginStorage }) => {
       </form>
 
       <div className={classes["outer-link"]}>
-        <p>
+        <div>
           Don't have an account? <Link to="/signup">Sign up </Link>
-        </p>
+        </div>
+        <div className="mb-2">
+          Forgot your password?
+          <Link to="/user/forgot-password"> Reset Password </Link>
+        </div>
       </div>
     </div>
   );

@@ -38,6 +38,22 @@ body {
   animation: rotateImg 2s linear infinite;
 }
 
+.write-review {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #6a6f73;
+  font-size: 0.8rem;
+  border: none;
+  background-color: white;
+  padding: 0;
+  margin-top: 1rem;
+  margin-right: 0.2rem;
+  text-decoration: underline;
+}
+
+.write-review:hover {
+  color: #2d2f31;
+}
+
 @keyframes rotateImg {
   from {
     transform: rotate(0deg);

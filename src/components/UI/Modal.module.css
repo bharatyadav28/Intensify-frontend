@@ -1,62 +1,61 @@
-.back-drop {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  z-index: 10;
   background-color: rgb(0, 0, 0, 0.75);
-  z-index: 40;
 }
 
-.modal-overlay {
+.container {
+  min-width: 2rem;
+  min-height: 2rem;
   position: fixed;
-  top: 20%;
-  left: 23%;
-  min-width: 30%;
-
-  z-index: 60;
-  border-radius: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
   background-color: white;
-  /* border: 1px solid #eee; */
+  border-radius: 15px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* animation class after model is opened */
-.modal-open {
-  opacity: 1;
-  animation: open 0.5s ease-out forwards;
-}
-/* animation class after model is set to be hidden */
-.modal-close {
-  opacity: 0;
-  animation: close 0.5s ease-out forwards;
+.show-modal {
+  animation: overlayShow 0.5s ease-out forwards;
 }
 
-@keyframes open {
+.hide-modal {
+  animation: overlayHide 0.5s ease-out forwards;
+}
+
+@keyframes overlayShow {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    top: -100%;
   }
   50% {
     opacity: 1;
-    transform: translateY(20%);
+    top: 55%;
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    top: 50%;
   }
 }
 
-@keyframes close {
+@keyframes overlayHide {
   0% {
     opacity: 1;
-    transform: translateY(0);
+    top: 50%;
   }
   50% {
-    opacity: 0.5;
-    transform: translateY(50%);
+    opacity: 0.8;
+    top: 55%;
   }
   100% {
     opacity: 0;
-    transform: translateY(-100%);
+    top: -100%;
   }
 }

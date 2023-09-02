@@ -86,8 +86,13 @@
   .course-card,
   .div2 {
     flex-direction: column;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     margin-right: 0.5rem;
+    /* border: 1px solid black; */
+  }
+
+  .div2 {
+    padding-left: 2rem;
   }
 
   .div1 {
@@ -95,7 +100,11 @@
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
+
+    margin-right: 0;
+    margin-left: 0;
   }
+
   .course-name {
     display: flex;
     justify-content: center;

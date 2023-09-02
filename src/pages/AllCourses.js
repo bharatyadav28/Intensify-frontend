@@ -13,6 +13,8 @@ import PaginationUI from "../components/UI/PaginationUI";
 
 const AllCourses = () => {
   const [show, setShow] = useState(false);
+  const [displayRating, setDisplayRatings] = useState(true);
+  const [displayTutors, setDisplayTutors] = useState(true);
   const [coursesData, setCoursesData] = useState(null);
 
   const { isLoading, error, dbConnect } = useHttp();
@@ -30,6 +32,8 @@ const AllCourses = () => {
     const search = queryParams.get("search");
     const sort = queryParams.get("sort");
     const page = queryParams.get("page");
+    const rating = queryParams.get("rating");
+    const tutors = queryParams.get("tutors");
 
     let apiUrl = `/api/v1/courses?limit=3&`;
     if (search) {
@@ -43,6 +47,15 @@ const AllCourses = () => {
     } else {
       // apiUrl += `page=1&`;
     }
+
+    if (rating) {
+      apiUrl += `rating=${rating}`;
+    }
+
+    if (tutors) {
+      apiUrl += `tutors=${tutors}`;
+    }
+    // console.log(apiUrl);
 
     dbConnect({ url: apiUrl }, postData);
   }, [dbConnect, location]);
@@ -82,14 +95,31 @@ const AllCourses = () => {
 
   let totalItems = coursesData?.totalItems || 0;
 
-  // filter off canvas
-  const handleShow = () => setShow((prevState) => !prevState);
+  // Handlers
+  const handleShowFilter = () => {
+    setShow((prevState) => {
+      if (prevState === true) {
+        setDisplayRatings(false);
+        setDisplayTutors(false);
+      }
+      return !prevState;
+    });
+  };
+
+  const handleDisplayRating = () =>
+    setDisplayRatings((prevState) => !prevState);
+
+  const handleDisplayTutors = () => setDisplayTutors((prevState) => !prevState);
 
   return (
     <div className="d-flex flex-column p-sm-3 p-0">
       <div className="d-flex flex-sm-row flex-column">
         <div className="d-flex justify-content-sm-start justify-content-center">
-          <Button variant="light" onClick={handleShow} className="fw-medium ">
+          <Button
+            variant="light"
+            onClick={handleShowFilter}
+            className="fw-medium "
+          >
             <FilterIcon className="fw-bold" /> Filter
           </Button>
           <SortHandle />
@@ -101,13 +131,17 @@ const AllCourses = () => {
       </div>
 
       <div className="d-flex flex-column flex-sm-row  ">
-        {show && (
-          <div>
-            <FilterOffcanvas />
-          </div>
-        )}
-
-        <div className=" flex-grow-1 mt-5 ">{dataDisplayed}</div>
+        <div className="align-self-center align-self-sm-start">
+          {/* <FilterOffcanvas
+            show={show}
+            displayRating={displayRating}
+            handleDisplayRating={handleDisplayRating}
+            displayTutors={displayTutors}
+            handleDisplayTutors={handleDisplayTutors}
+          /> */}
+          {show && <p className="mt-5 mx-1">Coming Soon!!! .In progress</p>}
+        </div>
+        <div className=" flex-grow-1 mt-sm-5 mt-4 ">{dataDisplayed}</div>
       </div>
 
       {!isLoading && (

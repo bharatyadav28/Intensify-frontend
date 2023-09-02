@@ -44,12 +44,14 @@ const MyLearningItem = ({ item }) => {
           <div className={classes["ratings"]}>
             <span className={classes["avg-ratings"]}>{orangeStars}.0</span>
             <span className={classes["avg-ratings-stars"]}>
-              {orangeStarsArray.map((item, index) => (
-                <Star size={13} color="orange" key={index} />
-              ))}
-              {whiteStarsArray.map((item, index) => (
-                <WhiteStar size={13} key={index} />
-              ))}
+              <div className="d-flex align-items-center">
+                {orangeStarsArray.map((item, index) => (
+                  <Star size={13} color="orange" key={index} />
+                ))}
+                {whiteStarsArray.map((item, index) => (
+                  <WhiteStar size={13} key={index} />
+                ))}
+              </div>
             </span>
             <span className={classes["total-ratings"]}>({totalRatings})</span>
           </div>

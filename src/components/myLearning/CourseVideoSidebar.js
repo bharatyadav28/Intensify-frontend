@@ -4,6 +4,8 @@ const CourseVideoSidebar = ({
   courseData,
   newActiveVideo,
   currentlyActive,
+
+  handleModal,
 }) => {
   return (
     <>
@@ -14,8 +16,15 @@ const CourseVideoSidebar = ({
           features={data.videos}
           newActiveVideo={newActiveVideo}
           currentlyActive={currentlyActive}
+          handleModal={handleModal}
         />
       ))}
+
+      <div className="d-flex justify-content-end">
+        <button className="write-review" onClick={handleModal}>
+          Write a review
+        </button>
+      </div>
     </>
   );
 };

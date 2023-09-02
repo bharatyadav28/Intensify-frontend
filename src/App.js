@@ -21,11 +21,11 @@ import MyLearning from "./components/myLearning/MyLearning";
 import Authenticated from "./components/auth/Authenticated";
 import { LoadingPageOverlay } from "./pages/LoadingPage";
 import CourseVideos from "./components/myLearning/CourseVideos";
+import { ForgotPassword, ResetPasssword } from "./pages/ForgotPassword";
 
 import { loader as CourseLoader } from "./pages/Courses";
 import { loader as HomePageLoader } from "./pages/Home";
 import favicon from "./assests/IntensifyPic.png";
-import VideoPlayer from "./components/myLearning/VideoPlayer";
 
 function App() {
   const dispatch = useDispatch();
@@ -143,6 +143,14 @@ function App() {
     {
       path: "/user/verify-email",
       element: <VerifyUser />,
+    },
+    {
+      path: "/user/forgot-password",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "/user/reset-password",
+      element: <ResetPasssword />,
     },
   ]);
 
