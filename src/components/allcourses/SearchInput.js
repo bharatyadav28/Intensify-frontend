@@ -52,7 +52,7 @@ const SearchInput = () => {
     }
   }, [inputValue]);
 
-  // set inpuut field value
+  // set input field value
   const value = () => {
     const { paramValue: search } = getSearchParams({
       location,

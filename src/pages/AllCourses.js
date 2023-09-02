@@ -3,13 +3,13 @@ import { useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { BsFilter as FilterIcon } from "react-icons/bs";
 
-import FilterOffcanvas from "../components/allcourses/FilterOffcanvas";
 import CourseItem from "../components/allcourses/CourseItem";
 import SearchInput from "../components/allcourses/SearchInput";
 import useHttp from "../hooks/use-http";
 import { BarsSpinner as LoadingSpinner } from "../components/UI/LoadingSpinner";
 import SortHandle from "../components/allcourses/SortHandle";
 import PaginationUI from "../components/UI/PaginationUI";
+import FilterCourses from "../components/allcourses/FilterCourses";
 
 const AllCourses = () => {
   const [show, setShow] = useState(false);
@@ -49,11 +49,11 @@ const AllCourses = () => {
     }
 
     if (rating) {
-      apiUrl += `rating=${rating}`;
+      apiUrl += `rating=${rating}&`;
     }
 
     if (tutors) {
-      apiUrl += `tutors=${tutors}`;
+      apiUrl += `tutors=${tutors}&`;
     }
     // console.log(apiUrl);
 
@@ -132,14 +132,13 @@ const AllCourses = () => {
 
       <div className="d-flex flex-column flex-sm-row  ">
         <div className="align-self-center align-self-sm-start">
-          {/* <FilterOffcanvas
+          <FilterCourses
             show={show}
             displayRating={displayRating}
             handleDisplayRating={handleDisplayRating}
             displayTutors={displayTutors}
             handleDisplayTutors={handleDisplayTutors}
-          /> */}
-          {show && <p className="mt-5 mx-1">Coming Soon!!! .In progress</p>}
+          />
         </div>
         <div className=" flex-grow-1 mt-sm-5 mt-4 ">{dataDisplayed}</div>
       </div>

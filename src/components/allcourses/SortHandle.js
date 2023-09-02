@@ -42,12 +42,20 @@ const SortHandle = () => {
     setSelected(events);
   };
 
+  const sortValue = () => {
+    const { searchParams, paramValue: sort } = getSearchParams({
+      location,
+      paramKey: "sort",
+    });
+    return sort;
+  };
+
   return (
     <CustomDropDown
       onSelect={handleDropdownSelect}
       title="Sort by"
       items={["latest", "oldest", "a-z", "z-a"]}
-      selectedItem={selectedRef.current}
+      selectedItem={sortValue()}
     />
   );
 };
