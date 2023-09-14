@@ -12,12 +12,18 @@ const AnimatedDropDown = ({
   //   const bodyClasses = [
   //     displaybody ? classes["block-show"] : classes["block-hide"],
   //   ];
-  console.log("db", displaybody);
+
   return (
     <div className={classes.main}>
       <div className={classes.heading} onClick={handleDisplayBody}>
         <div>{heading}</div>
-        <div>{btn}</div>
+        <div
+          className={`${displaybody ? classes["open-btn"] : null} ${
+            classes.btn
+          }`}
+        >
+          {btn}
+        </div>
       </div>
       <Transition in={displaybody} timeout={500} mountOnEnter unmountOnExit>
         {(state) => {

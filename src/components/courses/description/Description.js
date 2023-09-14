@@ -80,7 +80,12 @@ const Description = (props) => {
       showData = <Curriculum data={props.courseData.curriculum} />;
     }
     if (selectedOption === "instructor") {
-      showData = <Instructor data={props.courseData.instructor} />;
+      showData = (
+        <Instructor
+          data={props.courseData.instructor}
+          name={props.courseData.tutor}
+        />
+      );
     }
     if (selectedOption === "faq") {
       showData = <Faq data={props.courseData.FAQ} />;

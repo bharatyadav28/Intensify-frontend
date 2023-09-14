@@ -30,9 +30,10 @@ const CourseVideos = () => {
   const [activeVideo, setActiveVideo] = useState(null);
 
   useEffect(() => {
+    let openingSection = Math.floor(Math.random() * 3);
     setActiveVideo({
-      url: data?.courseVideos[0]?.videos[0]?.url,
-      name: data?.courseVideos[0]?.videos[0]?.name,
+      url: data?.courseVideos[openingSection]?.videos[0]?.url,
+      name: data?.courseVideos[openingSection]?.videos[0]?.name,
     });
   }, [data]);
 
