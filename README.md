@@ -6,21 +6,25 @@ Intensify is a dynamic and interactive e-learning platform designed to deliver a
 
 ## **Features**
 
-1. Interactive User Interface: Built with React and styled using React Bootstrap, ensuring a visually appealing and user-friendly interface.
-2. State Management: Utilizes RTK Redux for efficient and scalable state management.
-3. Responsive Design: Fully responsive layout that adapts to various devices, providing a consistent experience across desktops, tablets, and mobile phones.
-4. Course Management: Users can browse, enroll in, and rate courses, with a system in place to track their progress.
-5. Advanced Search: Integrated search functionality to help users easily find courses based on their interests and needs.
-6. Secure Authentication: Robust authentication system to ensure user data security and privacy.
-7. User Engagement: Features like course ratings and reviews to foster community engagement and feedback.
-8. Integrated Shopping Cart: Seamless shopping cart experience with Stripe payment integration for course purchases.
+* Interactive User Interface: Built with React and styled using React Bootstrap, ensuring a visually appealing and user-friendly interface.
+*  State Management: Utilizes RTK Redux for efficient and scalable state management.
+* Responsive Design: Fully responsive layout that adapts to various devices, providing a consistent experience across desktops, tablets, and mobile phones.
+* Course Management: Users can browse, enroll in, and rate courses, with a system in place to track their progress.
+* Advanced Search: Integrated search functionality to help users easily find courses based on their interests and needs.
+* Secure Authentication: Robust authentication system to ensure user data security and privacy.
+* User Engagement: Features like course ratings and reviews to foster community engagement and feedback.
+* Integrated Shopping Cart: Seamless shopping cart experience with Stripe payment integration for course purchases.
 
 ## **Technologies Used**
-React: A JavaScript library for building user interfaces.
-React Bootstrap: A front-end framework for developing responsive and mobile-first websites.
-RTK Redux: A predictable state container for JavaScript apps.
-CSS: Styling for the application.
-Redux: Used for state management to handle complex state interactions.
+* React: A JavaScript library for building user interfaces.
+
+* React Bootstrap: A front-end framework for developing responsive and mobile-first websites.
+
+* RTK Redux: A predictable state container for JavaScript apps.
+
+* CSS: Styling for the application.
+
+* Redux: Used for state management to handle complex state interactions.
 
 
 ## **Getting Started**
