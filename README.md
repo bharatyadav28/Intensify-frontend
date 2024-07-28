@@ -1,6 +1,8 @@
 # **Intensify Frontend**
 Intensify is a dynamic and interactive e-learning platform designed to deliver a seamless and engaging user experience. The frontend  is built with React and React Bootstrap, leveraging modern web technologies to provide an optimal learning environment.
 
+Access the live deployment of Intensify on Vercel <a href="https://intensify-jet.vercel.app/"> here </a> 
+
 > [!IMPORTANT]
 > This is the frontend repository of the Intensify project. To access the backend repository built using Node.js, please visit the <a href="https://github.com/bharatyadav28/Intensify-backend">Intensify-backend </a>
 
